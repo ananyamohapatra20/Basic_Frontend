@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <h1>Grade Calculator</h1>
+    <label for="subject1">Enter marks for Subject 1:</label>
+    <input type="text" id="subject1" placeholder="Enter marks for Subject 1">
+
+    <label for="subject2">Enter marks for Subject 2:</label>
+    <input type="text" id="subject2" placeholder="Enter marks for Subject 2">
+
+    <label for="subject3">Enter marks for Subject 3:</label>
+    <input type="text" id="subject3" placeholder="Enter marks for Subject 3">
+
+    <button onclick="calculateGrade()">Calculate Grade</button>
+
+    <h3>Result</h3>
+    <p id="result"></p>
+
+    <script>
+        function calculateGrade() {
+            // Get input values
+            var subject1 = parseFloat(document.getElementById("subject1").value);
+            var subject2 = parseFloat(document.getElementById("subject2").value);
+            var subject3 = parseFloat(document.getElementById("subject3").value);
+
+            // Check if input is valid
+            if (isNaN(subject1) || isNaN(subject2) || isNaN(subject3)) {
+                alert("Please enter valid marks for all subjects.");
+                return;
+            }
+
+            // Calculate average
+            var average = (subject1 + subject2 + subject3) / 3;
+
+            // Determine grade based on average
+            var grade = "";
+            if (average >= 90) {
+                grade = "A+";
+            } else if (average >= 80) {
+                grade = "A";
+            } else if (average >= 70) {
+                grade = "B";
+            } else if (average >= 60) {
+                grade = "C";
+            } else if (average >= 50) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            // Display result
+            var resultText = "Average Marks: " + average.toFixed(2) + "<br>";
+            resultText += "Grade: " + grade;
+
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>

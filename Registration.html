@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            text-align: left;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #bioData {
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Registration Form</h1>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="rollNumber">Roll Number:</label>
+        <input type="text" id="rollNumber" maxlength="9" placeholder="Enter Roll Number" required>
+
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" placeholder="Enter Full Name" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" placeholder="Enter Address" required>
+
+        <label for="dob">Date of Birth (mm/dd/yyyy):</label>
+        <input type="text" id="dob" placeholder="Enter Date of Birth" required>
+
+        <label for="phone">Phone No:</label>
+        <input type="tel" id="phone" placeholder="Enter Phone No" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter Email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter Password" required>
+
+        <label for="rePassword">Re-Enter Password:</label>
+        <input type="password" id="rePassword" placeholder="Re-Enter Password" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="familyIncome">Total Family Income:</label>
+        <select id="familyIncome" required>
+            <option value="<2 Lakh"><2 Lakh</option>
+            <option value=">3 & <5 Lakh">>3 & <5 Lakh</option>
+            <option value="5 & 10 Lakh">5 & 10 Lakh</option>
+            <option value=">10 Lakh">>10 Lakh</option>
+        </select>
+
+        <label for="programmingSkills">Programming Skills:</label>
+        <select id="programmingSkills" multiple required>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="C#">C#</option>
+            <option value="PASCA BASIC">PASCA BASIC</option>
+            <option value="Ctrl">Ctrl</option>
+            <option value="COBOL">COBOL</option>
+        </select>
+
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" placeholder="Enter Branch" required>
+
+        <label for="hobbies">Hobbies:</label>
+        <input type="text" id="hobbies" placeholder="Enter Hobbies" required>
+
+        <label for="typeOfJob">Type of Job Required:</label>
+        <select id="typeOfJob" required>
+            <option value="Software">Software</option>
+            <option value="Hardware">Hardware</option>
+            <option value="Manager">Manager</option>
+            <option value="Research">Research</option>
+        </select>
+
+        <label for="bioData">Upload your Bio Data:</label>
+        <input type="file" id="bioData" accept=".txt" required>
+
+        <button type="submit">Create</button>
+    </form>
+
+    <p id="confirmationMessage"></p>
+
+    <script>
+        function validateForm() {
+            // Add your validation logic here
+            // For simplicity, assuming all fields are valid
+            displayConfirmationMessage();
+            return false; // Prevents the form from submitting
+        }
+
+        function displayConfirmationMessage() {
+            var confirmationMessage = "Student registered successfully!\n\n";
+            confirmationMessage += "Roll Number: " + document.getElementById("rollNumber").value + "\n";
+            confirmationMessage += "Full Name: " + document.getElementById("fullName").value + "\n";
+            confirmationMessage += "Branch: " + document.getElementById("branch").value + "\n";
+            confirmationMessage += "Type of Job Required: " + document.getElementById("typeOfJob").value + "\n";
+
+            document.getElementById("confirmationMessage").innerText = confirmationMessage;
+        }
+    </script>
+</body>
+</html>
